@@ -39,8 +39,9 @@ window.addEventListener('DOMContentLoaded', () => {
 			item.appendChild(removeBtn);
 
 			cartWrapper.appendChild(item);
+			let visible = true;
 			if (empty) {
-				empty.remove();
+				document.querySelector('.empty').style.display = "none";
 			}
 
 			calcTotal();
@@ -98,8 +99,17 @@ window.addEventListener('DOMContentLoaded', () => {
 				btn.parentElement.remove();
 				calcGoods(0);
 				calcTotal();
+				let product = cartWrapper.querySelector('.goods__item');
+				if (!product) {
+				document.querySelector('.empty').style.display = "block";
+				};
+				
 			});
+
+			
 		});
+		
+
 	}
 });
 
